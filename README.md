@@ -36,18 +36,15 @@ The project is designed to be easy to run, easy to understand, and easy to exten
 
 ---
 
-## 📁 Repository structure (current)
+## 📁 Repository structure
 
+```
 Stock-Prediction/
 ├─ stock-price-prediction-by-lstm.ipynb
 ├─ README.md
 ├─ LICENSE
 └─ .gitignore
-
-yaml
-Copy code
-
-> Tip: If you later add scripts (`src/`, `requirements.txt`, etc.), you can extend this README easily.
+```
 
 ---
 
@@ -57,98 +54,105 @@ Copy code
 ```bash
 git clone https://github.com/Mirtaheri-ai/Stock-Prediction.git
 cd Stock-Prediction
-2) Create environment (recommended)
-Windows (PowerShell)
-bash
-Copy code
+```
+
+### 2) Create environment (recommended)
+
+#### Windows (PowerShell)
+```bash
 python -m venv .venv
 .venv\Scripts\Activate.ps1
-Linux/macOS
-bash
-Copy code
+```
+
+#### Linux/macOS
+```bash
 python -m venv .venv
 source .venv/bin/activate
-3) Install dependencies
-If you don’t have a requirements.txt yet, install the common stack:
+```
 
-bash
-Copy code
+### 3) Install dependencies
+If you don’t have a `requirements.txt` yet, install the common stack:
+```bash
 pip install -U pip
 pip install numpy pandas matplotlib scikit-learn tensorflow
-If your notebook uses additional libs (e.g., yfinance, plotly), install them too:
+```
 
-bash
-Copy code
+> If your notebook uses additional libs (e.g., `yfinance`, `plotly`), install them too:
+```bash
 pip install yfinance plotly
-4) Run the notebook
-bash
-Copy code
+```
+
+### 4) Run the notebook
+```bash
 jupyter notebook
-Open: stock-price-prediction-by-lstm.ipynb
+```
 
-📊 Data expectations
-Most stock datasets work if you have at least:
+Open: `stock-price-prediction-by-lstm.ipynb`
 
-Date (or index as datetime)
+---
 
-Close (minimum requirement)
+## 📊 Data expectations
+
+Minimum required columns:
+- `Date` (or datetime index)
+- `Close`
 
 Common OHLCV format:
+- `Open`, `High`, `Low`, `Close`, `Volume`
 
-Open, High, Low, Close, Volume
+> Ensure your data is sorted by time.
 
-You can use any source you prefer (CSV export, broker data, public APIs, etc.).
-Keep the dataset consistent and sorted by time.
+---
 
-📈 Evaluation
-Typical metrics for regression forecasting:
+## 📈 Evaluation
 
-MAE (Mean Absolute Error)
-
-RMSE (Root Mean Squared Error)
-
-R² (Coefficient of Determination)
+Common metrics:
+- **MAE**
+- **RMSE**
+- **R²**
 
 Recommended plots:
+- Actual vs Predicted
+- Error over time
+- Residual distribution
 
-Actual vs Predicted (line plot)
+---
 
-Error over time
+## 🧩 Reproducibility tips
 
-Residual distribution
+- Fix random seeds (NumPy / TensorFlow).
+- Use time-based splits (avoid shuffling).
+- Prefer walk-forward validation for realistic evaluation.
 
-🧩 Reproducibility tips
-Fix random seeds (NumPy / TensorFlow).
+---
 
-Use a strict train/val/test split by time (avoid shuffling).
+## 🛠️ Roadmap
 
-Prefer walk-forward validation for realistic performance checks.
+- [ ] Add `requirements.txt`
+- [ ] Add `src/` utilities (preprocess/model/train)
+- [ ] Walk-forward validation
+- [ ] Predict returns/direction (classification)
+- [ ] Compare against baselines (ARIMA/Prophet/XGBoost/Transformers)
 
-🛠️ Roadmap (nice upgrades)
- Add requirements.txt
+---
 
- Add src/ (data preprocessing, model builder, training utils)
+## 🤝 Contributing
 
- Add walk-forward validation
-
- Predict returns / direction (classification) in addition to price (regression)
-
- Compare against baselines (ARIMA, Prophet, XGBoost, Transformer models)
-
-🤝 Contributing
 PRs are welcome:
+1. Fork the repo
+2. Create a feature branch
+3. Submit a PR with a short description + results
 
-Fork the repo
+---
 
-Create a feature branch
+## 📄 License
 
-Submit a PR with a short description + screenshot/results if relevant
+MIT — see [LICENSE](LICENSE).
 
-📄 License
-MIT — see LICENSE.
+---
 
-👤 Author
+## 👤 Author
+
 GitHub: https://github.com/Mirtaheri-ai
 
-If you use this work in a project/report, a star ⭐ is appreciated.
-
+---
